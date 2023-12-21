@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>Signup Page</title>
+</head>
+<body>
+
+    <div class="signup-container">
+        <div class="logo">
+            <img src="logo-white.png" alt="Logo" class="logoImage" style="width: 250px;">
+        </div>
+        <form id="signupForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="building">Building Name:</label>
+            <input type="text" id="building" name="building" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <!-- Use type="button" to prevent automatic form submission -->
+            <button type="button" onclick="signup()">Sign Up</button>
+        </form>
+        <div class="bottom">
+            Already registerd?<a href="login1.html" class="link">Log in</a>
+        </div>
+    </div>
+
+    <script>
+        function signup() {
+            // Get form inputs
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var building = document.getElementById('building').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Check if any of the fields are empty
+             if (name === '' || email === '' || building === '' || password === '' || confirmPassword === '') {
+                 alert('Please fill in all fields');
+                 return;
+               }
+
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            // Prepare form data for the POST request
+            var formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('building', building);
+            formData.append('password', password);
+
+            // Make a POST request to the signup API
+            fetch('signup.php', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the server
+                if (data.status === 'success') {
+                    alert('Signup successful');
+                    // You can redirect the user or perform other actions here
+                    window.location.href = "login1.html";
+                } else {
+                    alert('Signup failed: ' + data.message);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+</body>
+</html>

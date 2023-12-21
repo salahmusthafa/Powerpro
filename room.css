@@ -1,0 +1,392 @@
+/* Combined.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.root {
+    flex-grow: 1;
+}
+
+.header {
+    /* background: #4D7E3E;
+    height: 100px; */
+    display: flex; /* Add this line to enable flexbox layout */
+    justify-content: space-between; /* Add this line to distribute the sections across the header */
+    align-items: center; /* Add this line to vertically center the content within the header */
+    height: 100px;
+    background: linear-gradient(90deg, rgba(0,33,36,1) 16%, rgba(9,80,121,1) 70%, rgba(5,40,56,1) 100%);
+}
+
+.menuButton {
+    margin-right: 16px;
+    font-size: x-large;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.menuButton1 {
+    margin-right: 16px;
+    font-size: x-large;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.menuButton:hover {
+    fill: black;
+}
+
+.leftSection {
+    /* display: flex;
+    align-items: center; */
+    display: flex;
+    align-items: center;
+}
+
+.centerSection {
+    /* flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px; */
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Add this line to vertically center the content within the centerSection */
+  
+}
+
+.rightSection {
+    /* display: flex;
+    align-items: center; */
+    display: flex;
+    align-items: center;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 45px;
+}
+
+.title,
+.subtitle {
+    width: 300px;
+    text-align: center;
+    color: white;
+}
+
+.title {
+    font-size: 2.9rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.apartment {
+    font-size: x-large;
+    margin-right: 25px;
+    cursor: pointer;
+    background: none; /* Set background to none to make it transparent */
+    color: white;
+    border: none;
+    padding: 0; /* Remove padding to eliminate any space around the text */
+    outline: none; /* Remove default focus outline */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.apartment:hover {
+    color: #2980b9;
+}
+
+.logoImage {
+    width: 100px;
+}
+
+/* Content.css */
+
+.container {
+    display: flex;
+    height: calc(100vh - 100px); /* Subtracting the height of the header (assuming a standard height of 64px) */
+    background: #639463;
+    padding: 45px;
+    box-sizing: border-box; /* Include padding and border in the box's total width and height */
+    background-image: url(bgc.jpg);
+}
+
+.container1 {
+    color: white;
+}
+
+.top {
+    display: inline-flex;
+}
+
+.filter {
+    font-size: 23px;
+}
+
+.dropdown {
+    margin-top: 3px;
+    cursor: pointer;
+    background: none; /* Set background to none to make it transparent */
+    color: white;
+    border: none;
+    padding: 0; /* Remove padding to eliminate any space around the text */
+    outline: none; /* Remove default focus outline */
+    margin-right: 10px;
+}
+
+.center {
+    display: flex;
+    margin-top: 190px;
+}
+
+.centerleft {
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.energy {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.insight {
+    margin-top: 10px;
+    background: linear-gradient(90deg, rgba(18,8,64,1) 16%, rgba(9,80,121,1) 70%, rgba(5,56,16,1) 100%);;
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: large;
+    border-radius: 10px;
+}
+.sensorbutton {
+    margin-top: 10px;
+    background: linear-gradient(90deg, rgba(18,8,64,1) 16%, rgba(9,80,121,1) 70%, rgba(5,56,16,1) 100%);;
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: large;
+    border-radius: 10px;
+}
+
+.odometer {
+    font-size: 100px;
+    margin-left: 100px;
+    
+}
+
+.centerright {
+    align-items: center;
+    margin-left: 100px;
+    font-size:xx-large;
+    margin-top: 20px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.value {
+    font-weight: 600;
+}
+
+/* .popup {
+    display: none;
+    position: absolute;
+    background-color: #630909;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    z-index: 1;
+}
+
+.popup a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup a:hover {
+    background-color: #ddd;
+} */
+/* .popup {
+    display: none;
+    position: absolute;
+    background-color: #2f0909;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1;
+} */
+.popup {
+    display: none;
+    position: absolute;
+    background: linear-gradient(90deg, rgba(0,33,36,1) 16%, rgba(9,80,121,1) 70%, rgba(5,40,56,1) 100%);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    min-width: 75px;
+    text-align: center;
+    top: 60px; /* Adjust this value to set the distance below the header */
+    border-radius: 8px;
+  }
+
+  .popup a {
+    /* Style for the links inside the popup */
+    display: block;
+    margin-bottom: 5px; /* Add margin between the links */
+    text-decoration: none;
+    color:white; /* Adjust the color as needed */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.popup a:hover {
+    color: #2980b9;
+}
+
+  .apartments {
+    display: none;
+    position: absolute;
+    background: linear-gradient(90deg, rgba(0,33,36,1) 16%, rgba(9,80,121,1) 70%, rgba(5,40,56,1) 100%);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    text-align: center;
+    min-width: 103px;
+    top: "90px !important" ;/* Adjust this value to set the distance below the header */ 
+    color: white; 
+    border-radius: 8px;
+  }
+
+  .apartments div {
+    margin-bottom: 10px; /* Add margin between each apartment */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.apartments div:hover {
+    color: #2980b9;
+}
+
+  
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center; /* Center the content */
+    width: 400px;
+    /* height: 300px; */
+  }
+
+  .modal input {
+    display: block;
+    width: 100%; /* Make the input fields full-width */
+    margin-bottom: 10px; /* Add spacing between text fields */
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .modalform {
+    margin-top: 30px; /* Add spacing at the top of the form */
+  }
+
+  .modalform label {
+    display: block;
+    margin-bottom: 5px; /* Add spacing between label and input */
+    
+  }
+
+  .modalform input {
+    display: block;
+    width: 100%; /* Make the input fields full-width */
+    height: 40px; 
+    margin-bottom: 10px; /* Add spacing between text fields */
+  }
+
+  .modal h2 {
+    margin-bottom: 20px; /* Add spacing between heading and form */
+    margin-top: 0px;
+  }
+
+  .button {
+    margin-top: 30px;
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(90deg, rgba(18,8,64,1) 16%, rgba(9,80,121,1) 70%, rgba(5,56,16,1) 100%);;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: large;
+  }
+
+  .chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    height:350px;
+    margin-left: 80px;
+    margin-top: -60px;
+    /* height: 100vh;  */
+  }
+
+  .filterlist {
+    display: none;
+    position: absolute;
+    background: linear-gradient(90deg, rgba(0,33,36,1) 16%, rgba(9,80,121,1) 70%, rgba(5,40,56,1) 100%);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+    text-align: center;
+    min-width: 80px;
+    top: "90px !important" ;/* Adjust this value to set the distance below the header */ 
+    color: white; 
+    border-radius: 8px;
+  }
+
+  .filterlist div {
+    margin-bottom: 10px; /* Add margin between each apartment */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.filterlist div:hover {
+    color: #2980b9;
+}
+ 
+  
+
+

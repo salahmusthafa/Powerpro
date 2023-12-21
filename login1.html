@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login1.css">
+    <title>Login Page</title>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo">
+            <img src="logo-white.png" alt="Logo" class="logoImage" style="width: 250px;">
+        </div>
+
+         <!-- Remove the "action" and "method" attributes from the form -->
+         <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <!-- Use type="button" to prevent automatic form submission -->
+            <button type="button" onclick="login()">Login</button>
+        </form>
+        
+        <div class="bottom">
+            Don't have an account?<a href="signup.html" class="link">Sign up</a>
+        </div>
+    </div>
+
+    <script>
+        // You can keep your JavaScript function for redirection if needed
+        function redirect() {
+            window.location.href = "main.html";
+        }
+        
+        function login() {
+            // Get username and password from the form
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Prepare data for the POST request
+            var data = {
+                username: username,
+                password: password
+            };
+
+            // Make a POST request to the login API
+            fetch('login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            
+            .then(data => {
+                // Handle the response from the server
+                if (data.status === 'success') {
+                    console.log("data:",data)
+                    alert('Login successful');
+                    console.log(data.username)
+                    localStorage.setItem('username', data.username)
+                    redirect();
+                    // You can redirect the user or perform other actions here
+                } else {
+                    alert('Login failed: ' + data.message);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    
+    </script>
+
+</body>
+</html>

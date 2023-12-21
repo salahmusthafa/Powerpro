@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="add_apartment.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Add Building</title>
+</head>
+<body>
+    <div class="add-apartment-container">
+
+        <div class="add-apartment-page">
+            <div class="form">
+                <!-- Add apartment Form -->
+                <form class="add-building-form">
+                    <input type="text" id="apartmentOwner" placeholder="Apartment Owner Name"/>
+                    <input type="text" id="apartmentNumber" placeholder="Apartment Number"/>
+                    <input type="text" id="buildingName" placeholder="Building Name"/>
+                    <button type="button" onclick="addBuilding()">Add Building</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to add a new building
+        function addBuilding() {
+            var apartmentOwner = document.getElementById('apartmentOwner').value;
+            var apartmentNumber = document.getElementById('apartmentNumber').value;
+            var buildingName = document.getElementById('buildingName').value;
+
+            // Validate the input fields as needed
+
+            // Prepare data for the POST request
+            var data = {
+                apartmentOwner: apartmentOwner,
+                apartmentNumber: apartmentNumber,
+                buildingName: buildingName
+            };
+
+            // Make a POST request to the server
+            fetch('add_building.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Building added successfully');
+                    // You can redirect the user or perform other actions here
+                } else {
+                    alert('Failed to add building: ' + data.message);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

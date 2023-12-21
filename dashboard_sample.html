@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPro Dashboard</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Link to your CSS file (if you have one) -->
+    <link rel="stylesheet" href="dashboard_sample.css">
+    <style>
+        /* Remove the inline style for body */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .building-info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .building-info h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .building-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+
+        <button onclick="redirectToAddBuilding()">Add Building</button>
+        <!-- Building Information Section -->
+        <div class="building-info">
+            <h2>Building Information</h2>
+            <p id="building-name">Building Name: Loading...</p>
+            <p id="building-owner">Owner: Loading...</p>
+            <p id="total-consumption">Total Consumption: Loading...</p>
+        </div>
+
+        <!-- Chart Section -->
+        <canvas id="buildingConsumptionChart" width="400" height="200"></canvas>
+
+    </div>
+
+    <script>
+
+        function redirectToAddBuilding() {
+        const username = sessionStorage.getItem('username');
+        window.location.href = `add_building.html?username=${username}`;
+         }
+
+        // Fetch data from the server
+        function fetchData() {
+            const username = sessionStorage.getItem('username');
+            // After storing the username
+            console.log('Stored username:', username);
+
+            // Fetch building information
+            fetch('get_building_info.php?username=' + username)
+                .then(response => response.json())
+                .then(buildingInfo => {
+                    // Update building information on the page
+                    document.getElementById('building-name').textContent = `Building Name: ${buildingInfo.building_name}`;
+                    document.getElementById('building-owner').textContent = `Owner: ${buildingInfo.building_owner_name}`;
+                    document.getElementById('total-consumption').textContent = `Total Consumption: ${buildingInfo.building_consumption} kWh`;
+                })
+                .catch(error => console.error('Error fetching building information:', error));
+
+            // Fetch chart data
+            fetch('get_building_consumption.php')
+                .then(response => response.json())
+                .then(data => {
+                    // Extract data for the chart
+                    const labels = data.map(item => item.building_name);
+                    const values = data.map(item => item.total_building_consumption);
+
+                    // Create a Chart.js chart
+                    const ctx = document.getElementById('buildingConsumptionChart').getContext('2d');
+                    const myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Total Consumption',
+                                data: values,
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching chart data:', error));
+        }
+
+        // Call the fetchData function when the page loads
+        window.onload = fetchData;
+    </script>
+</body>
+
+</html>

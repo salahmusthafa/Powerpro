@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-car.css" />
+<script src="http://github.hubspot.com/odometer/odometer.js"></script>
+<script>
+    setTimeout(function(){
+    odometer.innerHTML = 45609;
+}, 1000);
+
+
+// document.getElementById('menuButton1').addEventListener('click', function () {
+//         var menuPopup = document.getElementById('menuPopup');
+//         menuPopup.style.display = (menuPopup.style.display === 'block') ? 'none' : 'block';
+//     });
+
+</script>
+    
+
+  <title>Main</title>
+</head>
+<body>
+  <div class="root">
+    <header class="header">
+      <div class="leftSection">
+        <img src="pics/orglogo.png" alt="Logo" class="logoImage" style="width: 100px;">
+      </div>
+      <div class="centerSection">
+        <div class="titleContainer">
+          <div class="title">
+            PowerPro 
+          </div>
+          <div class="subtitle">
+            Empowering Energy Efficiency
+          </div>
+        </div>
+      </div>
+      <div class="rightSection">
+        <button class="apartment">Apartments</button>
+        <button class="menuButton" id="openModalButton">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="35px" height="40px" viewBox="0 0 32 32" version="1.1" fill="#ffffff">
+            <g id="Page-1" stroke="none" stroke-width="0" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-464.000000, -1087.000000)" fill="#ffffff">
+                    <path d="M480,1117 C472.268,1117 466,1110.73 466,1103 C466,1095.27 472.268,1089 480,1089 C487.732,1089 494,1095.27 494,1103 C494,1110.73 487.732,1117 480,1117 L480,1117 Z M480,1087 C471.163,1087 464,1094.16 464,1103 C464,1111.84 471.163,1119 480,1119 C488.837,1119 496,1111.84 496,1103 C496,1094.16 488.837,1087 480,1087 L480,1087 Z M486,1102 L481,1102 L481,1097 C481,1096.45 480.553,1096 480,1096 C479.447,1096 479,1096.45 479,1097 L479,1102 L474,1102 C473.447,1102 473,1102.45 473,1103 C473,1103.55 473.447,1104 474,1104 L479,1104 L479,1109 C479,1109.55 479.447,1110 480,1110 C480.553,1110 481,1109.55 481,1109 L481,1104 L486,1104 C486.553,1104 487,1103.55 487,1103 C487,1102.45 486.553,1102 486,1102 L486,1102 Z" id="plus-circle" sketch:type="MSShapeGroup"></path>
+                </g>
+            </g>
+        </svg>
+        </button>
+        <button class="menuButton1" id="menuButton1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="40px" height="50px" viewBox="0 0 32 32" id="icon">
+            <path d="M16,8a5,5,0,1,0,5,5A5,5,0,0,0,16,8Z" transform="translate(0 0)"/>
+            <path d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2Zm7.9925,22.9258A5.0016,5.0016,0,0,0,19,20H13a5.0016,5.0016,0,0,0-4.9925,4.9258,12,12,0,1,1,15.985,0Z" transform="translate(0 0)"/>
+            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" fill="none" width="32" height="32"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="container1">
+        <div class="top">
+          <div class="filter" id="filterButton">Filter</div>
+          <button class="dropdown" id="dropdownButton">▼</button>
+        </div>
+        <div class="center">
+          <div class="centerleft">
+            <div class="energy">
+              ENERGY CONSUMPTION 
+            </div>
+            <button class="insight">Insights</button>
+          </div>
+          <div id="odometer" class="odometer">00000</div>
+          <div class="centerright">
+            <div class="titleContainer">
+                <div class="month">
+                  December 2023
+                </div>
+                <div class="CONSUMPTION">
+                  Total Consumption
+                </div>
+                <div class="value">
+                    45609 KW
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="menuPopup" class="popup">
+      <div>{username}</div>
+      <a href="#">Settings</a>
+      <a href="login.html">Logout</a>
+    </div>
+    <div id="apartment" class="apartments">
+      <div onclick="redirectToApartment('apartment.html')">apartment 1</div>
+      <div onclick="redirectToApartment('apartment.html')">apartment 2</div>
+      <div onclick="redirectToApartment('apartment.html')">apartment 3</div>
+      <div onclick="redirectToApartment('apartment.html')">apartment 1</div>
+      <div onclick="redirectToApartment('apartment.html')">apartment 2</div>
+      <div onclick="redirectToApartment('apartment.html')">apartment 3</div>
+    </div>
+    <div id="filterlist" class="filterlist">
+      <div id="filterDay">Day</div>
+      <div id="filterWeek">Week</div>
+      <div id="filterMonth">Month</div>
+    </div>
+
+    <div id="modal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Add Apartments</h2>
+      <hr>
+      <form id="apartmentform" method="post" class="modalform">
+        <label for="buildingname">Building:</label>
+        <input type="text" id="building" name="building" required>
+
+        <label  class="label" for="owner">Apartment Owner:</label>
+        <input type="text" id="aprtowner" name="Owner" required>
+
+        <label for="number">Apartment Number:</label>
+        <input type="text" id="aprtnumb" name="Number" required>
+
+        <!-- Use onclick to trigger the JavaScript function -->
+        <button id="submitBtn" class="button" >Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    var username = localStorage.getItem('username');
+    
+
+    window.addEventListener('load', function () {
+      var menuButton1 = document.getElementById('menuButton1');
+      var menuPopup = document.getElementById('menuPopup');
+  
+      menuButton1.addEventListener('click', function () {
+        togglePopup(menuPopup);
+
+        displayUsername(menuPopup, username);
+      });
+    });
+
+    function displayUsername(popup, username) {
+        // Check if the username element already exists, remove it if it does
+        var existingUsernameElement = popup.querySelector('.username');
+        if (existingUsernameElement) {
+            existingUsernameElement.remove();
+        }
+
+        // Create a new element to display the username
+        var usernameElement = document.createElement('div');
+        usernameElement.classList.add('username');
+        usernameElement.textContent = 'Welcome, ' + username + '!';
+
+        // Append the username element to the menuPopup
+        popup.appendChild(usernameElement);
+    }
+
+    // Calculate the position relative to the button
+    var topPos = menuButton1.offsetTop + menuButton1.offsetHeight + 10;
+        var leftPos = menuButton1.offsetLeft - 40; // Adjust the value (-10 in this case) to move the popup more to the left
+  
+        menuPopup.style.top = topPos + 'px';
+        menuPopup.style.left = leftPos + 'px';
+  
+        window.addEventListener('load', function () {
+    var roomsButton = document.querySelector('.apartment');
+    var apartmentPopup = document.getElementById('apartment');
+
+    roomsButton.addEventListener('click', function (event) {
+        event.stopPropagation(); // Stop the click event from reaching the document
+
+        // Calculate the position relative to the button
+        var topPos = roomsButton.offsetTop + roomsButton.offsetHeight + 25; // Add the desired gap
+        var leftPos = roomsButton.offsetLeft;
+
+        apartmentPopup.style.top = topPos + 'px';
+        apartmentPopup.style.left = leftPos + 'px';
+        apartmentPopup.style.display = (apartmentPopup.style.display === 'block') ? 'none' : 'block';
+    });
+
+    // Close the apartmentPopup when clicking outside the popup
+    document.addEventListener('click', function (event) {
+        if (!apartmentPopup.contains(event.target) && event.target !== roomsButton) {
+            apartmentPopup.style.display = 'none';
+        }
+    });
+});
+
+function redirectToApartment(apartmentPage) {
+            window.location.href = apartmentPage;
+        }
+  
+    var modal = document.getElementById('modal');
+    var openModalButton = document.getElementById('openModalButton');
+  
+    openModalButton.addEventListener('click', function () {
+      togglePopup(modal);
+    });
+    var submitButton = document.getElementById('submitBtn');
+    function addApartmentToList(apartmentNumber) {
+    var apartmentContainer = document.getElementById('apartment');
+    var newApartmentDiv = document.createElement('div');
+    newApartmentDiv.textContent = 'Apartment ' + apartmentNumber;
+    newApartmentDiv.onclick = function () {
+        redirectToApartment('apartment.html'); // You can modify this as needed
+    };
+    apartmentContainer.appendChild(newApartmentDiv);
+}
+
+      submitButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get form values
+        var buildingName = document.getElementById('building').value;
+        var apartmentOwner = document.getElementById('aprtowner').value;
+        var apartmentNumber = document.getElementById('aprtnumb').value;
+
+        console.log("rerrere:",buildingName,apartmentOwner,apartmentNumber)
+
+        // Prepare data for sending to the backend (you can use Fetch API or another method)
+        var formData = {
+          building: buildingName,
+          Owner: apartmentOwner,
+          Number: apartmentNumber
+        };
+        console.log(formData)
+
+        // Example: Send data to the backend using Fetch API
+        fetch('get_apartment.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+        
+        
+        .then(response => response.json())
+        
+        .then(data => {
+          // Handle the response from the server if needed
+          console.log(data);
+          
+        })
+        
+        
+        .catch(error => {
+          console.error('Error:', error);
+        });
+        addApartmentToList(apartmentNumber);
+        clearFormFields();
+
+        // Close the modal after submitting the form
+        closeModal();
+      });
+      function clearFormFields() {
+    document.getElementById('building').value = '';
+    document.getElementById('aprtowner').value = '';
+    document.getElementById('aprtnumb').value = '';
+  }
+
+    
+  
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+  
+    // Close the modal if the user clicks outside of it
+    window.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  
+    function togglePopup(popup) {
+      var popups = document.querySelectorAll('.popup, .apartments, .modal');
+      popups.forEach(function (p) {
+        if (p !== popup) {
+          p.style.display = 'none';
+        }
+      });
+
+      popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+    }
+
+  window.addEventListener('load', function () {
+    var dropdownButton = document.getElementById('dropdownButton');
+  var filterPopup = document.getElementById('filterlist'); // Corrected here
+
+  dropdownButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+
+    var topPos = dropdownButton.offsetTop + dropdownButton.offsetHeight + 25;
+    var leftPos = dropdownButton.offsetLeft;
+
+    filterPopup.style.top = topPos + 'px';
+    filterPopup.style.left = leftPos + 'px';
+    filterPopup.style.display = (filterPopup.style.display === 'block') ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!filterPopup.contains(event.target) && event.target !== dropdownButton) {
+      filterPopup.style.display = 'none';
+    }
+  });
+});
+
+var odometerValue = 45609; // Initial odometer value
+
+// Function to update the odometer value
+function updateOdometer(value) {
+  var odometer = document.getElementById('odometer');
+  odometer.innerHTML = value;
+
+  // Update the value in the "value" class
+  var valueElement = document.querySelector('.value');
+  if (valueElement) {
+    valueElement.textContent = value + ' KW'; // Adjust as needed
+  }
+}
+
+// Event listeners for filter buttons
+document.getElementById('filterDay').addEventListener('click', function () {
+  // Your logic to calculate the value for the day filter
+  odometerValue = 100;
+  updateOdometer(odometerValue);
+});
+
+document.getElementById('filterWeek').addEventListener('click', function () {
+  // Your logic to calculate the value for the week filter
+  odometerValue = 500;
+  updateOdometer(odometerValue);
+});
+
+document.getElementById('filterMonth').addEventListener('click', function () {
+  // Your logic to calculate the value for the month filter
+  odometerValue = 1000;
+  updateOdometer(odometerValue);
+});
+
+</script>
+
+</body>
+</html>
